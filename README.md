@@ -203,3 +203,235 @@ Text(
 
 ---
 
+## Image Widget 
+
+Here’s a summary of the [Flutter `Image` class documentation](https://api.flutter.dev/flutter/widgets/Image-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Image` Widget**
+The `Image` widget is used to display images in a Flutter application. It supports various image sources, such as asset images, network images, and memory images.
+
+---
+
+### **1. Loading Images from Assets**
+To display an image from your app's assets, use the `Image.asset` constructor.
+
+#### Example:
+```dart
+Image.asset(
+  'assets/images/flutter_logo.png',
+  width: 100,
+  height: 100,
+);
+```
+
+---
+
+### **2. Loading Images from the Network**
+To display an image from a URL, use the `Image.network` constructor.
+
+#### Example:
+```dart
+Image.network(
+  'https://example.com/flutter_logo.png',
+  width: 100,
+  height: 100,
+);
+```
+
+---
+
+### **3. Loading Images from Memory**
+To display an image from binary data in memory, use the `Image.memory` constructor.
+
+#### Example:
+```dart
+Uint8List imageBytes = ...; // Binary image data
+Image.memory(
+  imageBytes,
+  width: 100,
+  height: 100,
+);
+```
+
+---
+
+### **4. Loading Images from Files**
+To display an image from a file, use the `Image.file` constructor.
+
+#### Example:
+```dart
+File imageFile = File('/path/to/image.png');
+Image.file(
+  imageFile,
+  width: 100,
+  height: 100,
+);
+```
+
+---
+
+### **5. Image Fit**
+You can control how the image fits within its container using the `fit` property.
+
+#### Example:
+```dart
+Image.asset(
+  'assets/images/flutter_logo.png',
+  width: 200,
+  height: 200,
+  fit: BoxFit.cover, // Covers the entire container
+);
+```
+
+---
+
+### **6. Image Alignment**
+You can align the image within its container using the `alignment` property.
+
+#### Example:
+```dart
+Image.asset(
+  'assets/images/flutter_logo.png',
+  width: 200,
+  height: 200,
+  alignment: Alignment.center, // Centers the image
+);
+```
+
+---
+
+### **7. Image Repeat**
+You can repeat the image within its container using the `repeat` property.
+
+#### Example:
+```dart
+Image.asset(
+  'assets/images/flutter_logo.png',
+  width: 200,
+  height: 200,
+  repeat: ImageRepeat.repeat, // Repeats the image
+);
+```
+
+---
+
+### **8. Image Color and Blend Mode**
+You can apply a color filter to the image using the `color` and `colorBlendMode` properties.
+
+#### Example:
+```dart
+Image.asset(
+  'assets/images/flutter_logo.png',
+  width: 100,
+  height: 100,
+  color: Colors.blue, // Applies a blue tint
+  colorBlendMode: BlendMode.colorBurn, // Blends the color
+);
+```
+
+---
+
+### **9. Placeholder and Error Widgets**
+You can provide placeholder and error widgets for network images using the `loadingBuilder` and `errorBuilder` properties.
+
+#### Example:
+```dart
+Image.network(
+  'https://example.com/flutter_logo.png',
+  width: 100,
+  height: 100,
+  loadingBuilder: (context, child, loadingProgress) {
+    if (loadingProgress == null) return child;
+    return CircularProgressIndicator(); // Placeholder while loading
+  },
+  errorBuilder: (context, error, stackTrace) {
+    return Text('Failed to load image'); // Error widget
+  },
+);
+```
+
+---
+
+### **10. Image Frame Builder**
+You can customize how the image is displayed as it loads using the `frameBuilder` property.
+
+#### Example:
+```dart
+Image.network(
+  'https://example.com/flutter_logo.png',
+  width: 100,
+  height: 100,
+  frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+    if (wasSynchronouslyLoaded) return child;
+    return AnimatedOpacity(
+      child: child,
+      opacity: frame == null ? 0 : 1,
+      duration: Duration(seconds: 1),
+      curve: Curves.easeOut,
+    );
+  },
+);
+```
+
+---
+
+### **11. Image Cache**
+You can control how images are cached using the `cacheWidth`, `cacheHeight`, and `filterQuality` properties.
+
+#### Example:
+```dart
+Image.network(
+  'https://example.com/flutter_logo.png',
+  width: 100,
+  height: 100,
+  cacheWidth: 100, // Caches the image at 100px width
+  filterQuality: FilterQuality.high, // Improves image quality
+);
+```
+
+---
+
+### **Summary of `Image` Widget Properties**
+| Property            | Description                              | Example                                   |
+|---------------------|------------------------------------------|-------------------------------------------|
+| `image`             | The image provider (e.g., `AssetImage`)  | `Image.asset('assets/image.png')`         |
+| `width`             | Width of the image                       | `width: 100`                              |
+| `height`            | Height of the image                      | `height: 100`                             |
+| `fit`               | How the image fits the container         | `fit: BoxFit.cover`                       |
+| `alignment`         | Alignment of the image                   | `alignment: Alignment.center`             |
+| `repeat`            | How the image repeats                    | `repeat: ImageRepeat.repeat`              |
+| `color`             | Color filter for the image               | `color: Colors.blue`                      |
+| `colorBlendMode`    | Blend mode for the color filter          | `colorBlendMode: BlendMode.colorBurn`     |
+| `loadingBuilder`    | Placeholder while loading                | `loadingBuilder: (context, child, ...)`   |
+| `errorBuilder`      | Widget to display on error               | `errorBuilder: (context, error, ...)`     |
+| `frameBuilder`      | Customizes image loading animation       | `frameBuilder: (context, child, ...)`     |
+| `cacheWidth`        | Caches image at a specific width         | `cacheWidth: 100`                         |
+| `filterQuality`     | Quality of the image rendering           | `filterQuality: FilterQuality.high`       |
+
+---
+
+### **Example: Full Usage**
+Here’s an example combining multiple properties:
+```dart
+Image.network(
+  'https://example.com/flutter_logo.png',
+  width: 200,
+  height: 200,
+  fit: BoxFit.cover,
+  alignment: Alignment.center,
+  color: Colors.blue.withOpacity(0.5),
+  colorBlendMode: BlendMode.colorBurn,
+  loadingBuilder: (context, child, loadingProgress) {
+    if (loadingProgress == null) return child;
+    return CircularProgressIndicator();
+  },
+  errorBuilder: (context, error, stackTrace) {
+    return Text('Failed to load image');
+  },
+);
+```
+
+---
+
