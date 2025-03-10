@@ -435,3 +435,258 @@ Image.network(
 
 ---
 
+## TextButton Widget 
+
+Here’s a summary of the [Flutter `TextButton` class documentation](https://api.flutter.dev/flutter/material/TextButton-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `TextButton` Widget**
+The `TextButton` widget is a Material Design button that displays text and responds to user interaction. It is typically used for less prominent actions in an app.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `TextButton` is to provide a `child` (usually a `Text` widget) and an `onPressed` callback.
+
+#### Example:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  child: Text('Click Me'),
+);
+```
+
+---
+
+### **2. Styling the Button**
+You can customize the appearance of the button using the `style` parameter, which accepts a `ButtonStyle` object.
+
+#### Example:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  style: TextButton.styleFrom(
+    primary: Colors.white, // Text color
+    backgroundColor: Colors.blue, // Background color
+    padding: EdgeInsets.all(16), // Padding
+  ),
+  child: Text('Click Me'),
+);
+```
+
+---
+
+### **3. Disabling the Button**
+You can disable the button by setting `onPressed` to `null`.
+
+#### Example:
+```dart
+TextButton(
+  onPressed: null, // Disables the button
+  child: Text('Disabled Button'),
+);
+```
+
+---
+
+### **4. Icon and Text**
+You can include an icon alongside the text using the `Row` widget.
+
+#### Example:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  child: Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(Icons.thumb_up),
+      SizedBox(width: 8), // Spacing between icon and text
+      Text('Like'),
+    ],
+  ),
+);
+```
+
+---
+
+### **5. Customizing Shape**
+You can customize the shape of the button using the `shape` property in `ButtonStyle`.
+
+#### Example:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  style: TextButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20), // Rounded corners
+    ),
+  ),
+  child: Text('Rounded Button'),
+);
+```
+
+---
+
+### **6. Adding a Border**
+You can add a border to the button using the `side` property in `ButtonStyle`.
+
+#### Example:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  style: TextButton.styleFrom(
+    side: BorderSide(color: Colors.blue, width: 2), // Border
+  ),
+  child: Text('Bordered Button'),
+);
+```
+
+---
+
+### **7. Elevation and Shadow**
+You can add elevation and shadow to the button using the `elevation` property.
+
+#### Example:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  style: TextButton.styleFrom(
+    elevation: 5, // Adds shadow
+  ),
+  child: Text('Elevated Button'),
+);
+```
+
+---
+
+### **8. Customizing Text Style**
+You can customize the text style using the `textStyle` property in `ButtonStyle`.
+
+#### Example:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  style: TextButton.styleFrom(
+    textStyle: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+  child: Text('Styled Text'),
+);
+```
+
+---
+
+### **9. Using `ButtonStyle` Theme**
+You can define a global `ButtonStyle` for all `TextButton` widgets using the app's theme.
+
+#### Example:
+```dart
+MaterialApp(
+  theme: ThemeData(
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        primary: Colors.white,
+        backgroundColor: Colors.blue,
+      ),
+    ),
+  ),
+  home: Scaffold(
+    body: Center(
+      child: TextButton(
+        onPressed: () {
+          print('Button pressed!');
+        },
+        child: Text('Themed Button'),
+      ),
+    ),
+  ),
+);
+```
+
+---
+
+### **10. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  style: TextButton.styleFrom(
+    primary: Colors.white,
+    backgroundColor: Colors.blue,
+    padding: EdgeInsets.all(16),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+    ),
+    side: BorderSide(color: Colors.blue, width: 2),
+    elevation: 5,
+    textStyle: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+  child: Text('Custom Button'),
+);
+```
+
+---
+
+### **Summary of `TextButton` Properties**
+| Property          | Description                              | Example                                   |
+|-------------------|------------------------------------------|-------------------------------------------|
+| `onPressed`       | Callback when the button is pressed      | `onPressed: () { print('Pressed'); }`    |
+| `child`           | The widget inside the button             | `child: Text('Click Me')`                |
+| `style`           | Customizes the button's appearance       | `style: TextButton.styleFrom(...)`        |
+| `onLongPress`     | Callback for long press                  | `onLongPress: () { print('Long Press'); }`|
+| `autofocus`       | Whether the button is focused initially  | `autofocus: true`                        |
+| `clipBehavior`    | Clipping behavior                        | `clipBehavior: Clip.antiAlias`           |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `TextButton` with various customizations:
+```dart
+TextButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  style: TextButton.styleFrom(
+    primary: Colors.white,
+    backgroundColor: Colors.blue,
+    padding: EdgeInsets.all(16),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+    ),
+    side: BorderSide(color: Colors.blue, width: 2),
+    elevation: 5,
+    textStyle: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+  child: Text('Custom Button'),
+);
+```
+
+---
+
