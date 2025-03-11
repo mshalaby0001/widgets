@@ -1,5 +1,52 @@
 # widgets
 
+**Basic Widgets**
+Container – A flexible box for layout, styling, and decoration.
+Text – Displays text with styling options.
+Image – Shows images from assets, network, or memory.
+Icon – Displays material icons.
+Scaffold – Provides a basic layout structure with an app bar, floating action button, etc.
+**Layout Widgets**
+Row – Arranges children horizontally.
+Column – Arranges children vertically.
+Stack – Overlaps widgets on top of each other.
+Expanded – Forces a child to fill available space in a Row or Column.
+Flexible – Similar to Expanded but with more control.
+Padding – Adds space around a widget.
+Align – Aligns a child within a parent.
+SizedBox – Creates fixed-width or fixed-height space.
+Wrap – Wraps children when they exceed available space.
+**Input & Interaction Widgets**
+ElevatedButton – A button with elevation.
+TextButton – A button without elevation.
+OutlinedButton – A button with an outlined border.
+IconButton – A button with an icon.
+GestureDetector – Detects touch gestures like taps, swipes, and drags.
+InkWell – Provides ripple effects on tap.
+TextField – Input field for text.
+Checkbox – A tickable box.
+Switch – A toggle switch.
+Slider – A draggable value selector.
+**Navigation & Structural Widgets**
+AppBar – A material design app bar.
+BottomNavigationBar – A bottom navigation menu.
+Drawer – A slide-out navigation panel.
+TabBar & TabBarView – Provides a tabbed interface.
+Navigator – Manages screen transitions.
+**List & Grid Widgets**
+ListView – Displays a scrollable list of widgets.
+GridView – Displays a scrollable grid of widgets.
+ListTile – A single item in a list.
+**Animation & Effect Widgets**
+AnimatedContainer – Automatically animates changes in size, color, etc.
+Hero – Enables shared element transitions.
+Opacity – Controls widget transparency.
+**Other Useful Widgets**
+FutureBuilder – Handles asynchronous data loading.
+StreamBuilder – Builds widgets based on a Stream.
+ClipRRect – Clips a widget into a rounded rectangle.
+RichText – Displays text with multiple styles.
+
 ## Text Widget 
 
 Here’s a summary of the [Flutter `Text` class documentation](https://api.flutter.dev/flutter/widgets/Text-class.html), using the same method with explanations and **code examples**:
@@ -686,6 +733,2976 @@ TextButton(
   ),
   child: Text('Custom Button'),
 );
+```
+
+---
+
+## Container Widget 
+
+Here’s a summary of the [Flutter `Container` class documentation](https://api.flutter.dev/flutter/widgets/Container-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Container` Widget**
+The `Container` widget is a versatile and commonly used widget in Flutter. It combines common painting, positioning, and sizing widgets into a single widget. It can be used to create boxes with background colors, borders, margins, padding, and more.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Container` is to provide a `child` widget.
+
+#### Example:
+```dart
+Container(
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **2. Adding Padding**
+You can add padding around the child widget using the `padding` property.
+
+#### Example:
+```dart
+Container(
+  padding: EdgeInsets.all(16), // Padding on all sides
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **3. Adding Margins**
+You can add margins around the container using the `margin` property.
+
+#### Example:
+```dart
+Container(
+  margin: EdgeInsets.all(16), // Margin on all sides
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **4. Setting Width and Height**
+You can specify the width and height of the container using the `width` and `height` properties.
+
+#### Example:
+```dart
+Container(
+  width: 200,
+  height: 100,
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **5. Adding a Background Color**
+You can set a background color for the container using the `color` property.
+
+#### Example:
+```dart
+Container(
+  color: Colors.blue, // Background color
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **6. Adding a Border**
+You can add a border to the container using the `decoration` property with a `BoxDecoration`.
+
+#### Example:
+```dart
+Container(
+  decoration: BoxDecoration(
+    border: Border.all(
+      color: Colors.black,
+      width: 2,
+    ),
+  ),
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **7. Adding Rounded Corners**
+You can add rounded corners to the container using the `borderRadius` property in `BoxDecoration`.
+
+#### Example:
+```dart
+Container(
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(10), // Rounded corners
+    color: Colors.blue,
+  ),
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **8. Adding a Gradient Background**
+You can add a gradient background to the container using the `gradient` property in `BoxDecoration`.
+
+#### Example:
+```dart
+Container(
+  decoration: BoxDecoration(
+    gradient: LinearGradient(
+      colors: [Colors.blue, Colors.green],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+  ),
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **9. Adding a Box Shadow**
+You can add a shadow to the container using the `boxShadow` property in `BoxDecoration`.
+
+#### Example:
+```dart
+Container(
+  decoration: BoxDecoration(
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.5),
+        spreadRadius: 5,
+        blurRadius: 7,
+        offset: Offset(0, 3), // Shadow position
+      ),
+    ],
+  ),
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **10. Aligning the Child**
+You can align the child widget within the container using the `alignment` property.
+
+#### Example:
+```dart
+Container(
+  alignment: Alignment.center, // Centers the child
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **11. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Container(
+  width: 200,
+  height: 100,
+  padding: EdgeInsets.all(16),
+  margin: EdgeInsets.all(16),
+  decoration: BoxDecoration(
+    color: Colors.blue,
+    borderRadius: BorderRadius.circular(10),
+    border: Border.all(
+      color: Colors.black,
+      width: 2,
+    ),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.5),
+        spreadRadius: 5,
+        blurRadius: 7,
+        offset: Offset(0, 3),
+      ),
+    ],
+  ),
+  alignment: Alignment.center,
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+### **Summary of `Container` Properties**
+| Property          | Description                              | Example                                   |
+|-------------------|------------------------------------------|-------------------------------------------|
+| `child`           | The widget inside the container          | `child: Text('Hello, Flutter!')`         |
+| `padding`         | Padding around the child                 | `padding: EdgeInsets.all(16)`            |
+| `margin`          | Margin around the container              | `margin: EdgeInsets.all(16)`             |
+| `width`           | Width of the container                   | `width: 200`                             |
+| `height`          | Height of the container                  | `height: 100`                            |
+| `color`           | Background color                         | `color: Colors.blue`                     |
+| `decoration`      | Customizes the container's appearance    | `decoration: BoxDecoration(...)`         |
+| `alignment`       | Aligns the child within the container    | `alignment: Alignment.center`            |
+| `constraints`     | Constraints on the container's size      | `constraints: BoxConstraints(...)`       |
+| `transform`       | Transforms the container                 | `transform: Matrix4.rotationZ(0.1)`      |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Container` with various customizations:
+```dart
+Container(
+  width: 200,
+  height: 100,
+  padding: EdgeInsets.all(16),
+  margin: EdgeInsets.all(16),
+  decoration: BoxDecoration(
+    color: Colors.blue,
+    borderRadius: BorderRadius.circular(10),
+    border: Border.all(
+      color: Colors.black,
+      width: 2,
+    ),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.5),
+        spreadRadius: 5,
+        blurRadius: 7,
+        offset: Offset(0, 3),
+      ),
+    ],
+  ),
+  alignment: Alignment.center,
+  child: Text('Hello, Flutter!'),
+);
+```
+
+---
+
+## Card Widget 
+
+Here’s a summary of the [Flutter `Card` class documentation](https://api.flutter.dev/flutter/material/Card-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Card` Widget**
+The `Card` widget is a Material Design component used to display content in a rounded rectangle with a shadow. It is commonly used to group related information and provide a visual hierarchy.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Card` is to provide a `child` widget.
+
+#### Example:
+```dart
+Card(
+  child: ListTile(
+    leading: Icon(Icons.person),
+    title: Text('John Doe'),
+    subtitle: Text('Software Developer'),
+  ),
+);
+```
+
+---
+
+### **2. Adding Padding**
+You can add padding around the child widget using the `margin` and `padding` properties.
+
+#### Example:
+```dart
+Card(
+  margin: EdgeInsets.all(16), // Margin around the card
+  child: Padding(
+    padding: EdgeInsets.all(16), // Padding inside the card
+    child: Text('Hello, Flutter!'),
+  ),
+);
+```
+
+---
+
+### **3. Customizing Elevation**
+You can customize the shadow of the card using the `elevation` property.
+
+#### Example:
+```dart
+Card(
+  elevation: 8, // Higher elevation for a larger shadow
+  child: ListTile(
+    leading: Icon(Icons.person),
+    title: Text('John Doe'),
+    subtitle: Text('Software Developer'),
+  ),
+);
+```
+
+---
+
+### **4. Adding a Border**
+You can add a border to the card using the `shape` property.
+
+#### Example:
+```dart
+Card(
+  shape: RoundedRectangleBorder(
+    side: BorderSide(
+      color: Colors.black,
+      width: 2,
+    ),
+    borderRadius: BorderRadius.circular(10), // Rounded corners
+  ),
+  child: ListTile(
+    leading: Icon(Icons.person),
+    title: Text('John Doe'),
+    subtitle: Text('Software Developer'),
+  ),
+);
+```
+
+---
+
+### **5. Adding a Background Color**
+You can set a background color for the card using the `color` property.
+
+#### Example:
+```dart
+Card(
+  color: Colors.blue, // Background color
+  child: ListTile(
+    leading: Icon(Icons.person),
+    title: Text('John Doe'),
+    subtitle: Text('Software Developer'),
+  ),
+);
+```
+
+---
+
+### **6. Adding a Gradient Background**
+You can add a gradient background to the card using the `decoration` property.
+
+#### Example:
+```dart
+Card(
+  decoration: BoxDecoration(
+    gradient: LinearGradient(
+      colors: [Colors.blue, Colors.green],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+  ),
+  child: ListTile(
+    leading: Icon(Icons.person),
+    title: Text('John Doe'),
+    subtitle: Text('Software Developer'),
+  ),
+);
+```
+
+---
+
+### **7. Adding a Clip Behavior**
+You can control how the card's content is clipped using the `clipBehavior` property.
+
+#### Example:
+```dart
+Card(
+  clipBehavior: Clip.antiAlias, // Smooth edges
+  child: ListTile(
+    leading: Icon(Icons.person),
+    title: Text('John Doe'),
+    subtitle: Text('Software Developer'),
+  ),
+);
+```
+
+---
+
+### **8. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Card(
+  margin: EdgeInsets.all(16),
+  elevation: 8,
+  shape: RoundedRectangleBorder(
+    side: BorderSide(
+      color: Colors.black,
+      width: 2,
+    ),
+    borderRadius: BorderRadius.circular(10),
+  ),
+  color: Colors.blue,
+  child: Padding(
+    padding: EdgeInsets.all(16),
+    child: ListTile(
+      leading: Icon(Icons.person),
+      title: Text('John Doe'),
+      subtitle: Text('Software Developer'),
+    ),
+  ),
+);
+```
+
+---
+
+### **Summary of `Card` Properties**
+| Property          | Description                              | Example                                   |
+|-------------------|------------------------------------------|-------------------------------------------|
+| `child`           | The widget inside the card               | `child: ListTile(...)`                   |
+| `margin`          | Margin around the card                   | `margin: EdgeInsets.all(16)`             |
+| `elevation`       | Shadow depth                             | `elevation: 8`                           |
+| `shape`           | Shape of the card                        | `shape: RoundedRectangleBorder(...)`     |
+| `color`           | Background color                         | `color: Colors.blue`                     |
+| `decoration`      | Customizes the card's appearance         | `decoration: BoxDecoration(...)`         |
+| `clipBehavior`    | Clipping behavior                        | `clipBehavior: Clip.antiAlias`           |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Card` with various customizations:
+```dart
+Card(
+  margin: EdgeInsets.all(16),
+  elevation: 8,
+  shape: RoundedRectangleBorder(
+    side: BorderSide(
+      color: Colors.black,
+      width: 2,
+    ),
+    borderRadius: BorderRadius.circular(10),
+  ),
+  color: Colors.blue,
+  child: Padding(
+    padding: EdgeInsets.all(16),
+    child: ListTile(
+      leading: Icon(Icons.person),
+      title: Text('John Doe'),
+      subtitle: Text('Software Developer'),
+    ),
+  ),
+);
+```
+
+---
+
+## Column Widget 
+
+Here’s a summary of the [Flutter `Column` class documentation](https://api.flutter.dev/flutter/widgets/Column-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Column` Widget**
+The `Column` widget is a layout widget that displays its children in a vertical array. It is commonly used to arrange widgets vertically on the screen.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Column` is to provide a list of `children`.
+
+#### Example:
+```dart
+Column(
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **2. Main Axis Alignment**
+You can align children along the main axis (vertical axis) using the `mainAxisAlignment` property.
+
+#### Example:
+```dart
+Column(
+  mainAxisAlignment: MainAxisAlignment.center, // Centers children vertically
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **3. Cross Axis Alignment**
+You can align children along the cross axis (horizontal axis) using the `crossAxisAlignment` property.
+
+#### Example:
+```dart
+Column(
+  crossAxisAlignment: CrossAxisAlignment.start, // Aligns children to the start horizontally
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **4. Main Axis Size**
+You can control the size of the column along the main axis using the `mainAxisSize` property.
+
+#### Example:
+```dart
+Column(
+  mainAxisSize: MainAxisSize.min, // Column takes up minimum vertical space
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **5. Adding Spacing**
+You can add spacing between children using the `SizedBox` widget.
+
+#### Example:
+```dart
+Column(
+  children: [
+    Text('First Item'),
+    SizedBox(height: 10), // Adds 10 pixels of space
+    Text('Second Item'),
+    SizedBox(height: 10), // Adds 10 pixels of space
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **6. Adding a Scrollable Column**
+If the content of the column exceeds the available space, you can make it scrollable using the `SingleChildScrollView` widget.
+
+#### Example:
+```dart
+SingleChildScrollView(
+  child: Column(
+    children: List.generate(20, (index) => Text('Item $index')),
+  ),
+);
+```
+
+---
+
+### **7. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Text('First Item'),
+    SizedBox(height: 10),
+    Text('Second Item'),
+    SizedBox(height: 10),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **Summary of `Column` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `children`            | The widgets inside the column            | `children: [Text('Item 1'), Text('Item 2')]` |
+| `mainAxisAlignment`   | Aligns children along the main axis      | `mainAxisAlignment: MainAxisAlignment.center` |
+| `crossAxisAlignment`  | Aligns children along the cross axis     | `crossAxisAlignment: CrossAxisAlignment.start` |
+| `mainAxisSize`        | Controls the size along the main axis    | `mainAxisSize: MainAxisSize.min`          |
+| `textDirection`       | Text direction for children              | `textDirection: TextDirection.rtl`        |
+| `verticalDirection`   | Vertical direction for children          | `verticalDirection: VerticalDirection.up` |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Column` with various customizations:
+```dart
+Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Text('First Item'),
+    SizedBox(height: 10),
+    Text('Second Item'),
+    SizedBox(height: 10),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+## Row Widget 
+
+Here’s a summary of the [Flutter `Row` class documentation](https://api.flutter.dev/flutter/widgets/Row-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Row` Widget**
+The `Row` widget is a layout widget that displays its children in a horizontal array. It is commonly used to arrange widgets horizontally on the screen.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Row` is to provide a list of `children`.
+
+#### Example:
+```dart
+Row(
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **2. Main Axis Alignment**
+You can align children along the main axis (horizontal axis) using the `mainAxisAlignment` property.
+
+#### Example:
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.center, // Centers children horizontally
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **3. Cross Axis Alignment**
+You can align children along the cross axis (vertical axis) using the `crossAxisAlignment` property.
+
+#### Example:
+```dart
+Row(
+  crossAxisAlignment: CrossAxisAlignment.start, // Aligns children to the start vertically
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **4. Main Axis Size**
+You can control the size of the row along the main axis using the `mainAxisSize` property.
+
+#### Example:
+```dart
+Row(
+  mainAxisSize: MainAxisSize.min, // Row takes up minimum horizontal space
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **5. Adding Spacing**
+You can add spacing between children using the `SizedBox` widget.
+
+#### Example:
+```dart
+Row(
+  children: [
+    Text('First Item'),
+    SizedBox(width: 10), // Adds 10 pixels of space
+    Text('Second Item'),
+    SizedBox(width: 10), // Adds 10 pixels of space
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **6. Adding a Scrollable Row**
+If the content of the row exceeds the available space, you can make it scrollable using the `SingleChildScrollView` widget.
+
+#### Example:
+```dart
+SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  child: Row(
+    children: List.generate(20, (index) => Text('Item $index ')),
+  ),
+);
+```
+
+---
+
+### **7. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Text('First Item'),
+    SizedBox(width: 10),
+    Text('Second Item'),
+    SizedBox(width: 10),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+### **Summary of `Row` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `children`            | The widgets inside the row               | `children: [Text('Item 1'), Text('Item 2')]` |
+| `mainAxisAlignment`   | Aligns children along the main axis      | `mainAxisAlignment: MainAxisAlignment.center` |
+| `crossAxisAlignment`  | Aligns children along the cross axis     | `crossAxisAlignment: CrossAxisAlignment.start` |
+| `mainAxisSize`        | Controls the size along the main axis    | `mainAxisSize: MainAxisSize.min`          |
+| `textDirection`       | Text direction for children              | `textDirection: TextDirection.rtl`        |
+| `verticalDirection`   | Vertical direction for children          | `verticalDirection: VerticalDirection.up` |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Row` with various customizations:
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Text('First Item'),
+    SizedBox(width: 10),
+    Text('Second Item'),
+    SizedBox(width: 10),
+    Text('Third Item'),
+  ],
+);
+```
+
+---
+
+## List View Widget 
+
+Here’s a summary of the [Flutter `ListView` class documentation](https://api.flutter.dev/flutter/widgets/ListView-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `ListView` Widget**
+The `ListView` widget is a scrollable list of widgets arranged linearly. It is commonly used to display a list of items that can be scrolled vertically or horizontally.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `ListView` is to provide a list of `children`.
+
+#### Example:
+```dart
+ListView(
+  children: [
+    ListTile(title: Text('Item 1')),
+    ListTile(title: Text('Item 2')),
+    ListTile(title: Text('Item 3')),
+  ],
+);
+```
+
+---
+
+### **2. ListView.builder**
+Use `ListView.builder` to create a list with a large or infinite number of items. It builds items on demand.
+
+#### Example:
+```dart
+ListView.builder(
+  itemCount: 100, // Number of items
+  itemBuilder: (context, index) {
+    return ListTile(title: Text('Item $index'));
+  },
+);
+```
+
+---
+
+### **3. ListView.separated**
+Use `ListView.separated` to create a list with separators between items.
+
+#### Example:
+```dart
+ListView.separated(
+  itemCount: 100, // Number of items
+  separatorBuilder: (context, index) => Divider(), // Separator between items
+  itemBuilder: (context, index) {
+    return ListTile(title: Text('Item $index'));
+  },
+);
+```
+
+---
+
+### **4. Scroll Direction**
+You can change the scroll direction to horizontal using the `scrollDirection` property.
+
+#### Example:
+```dart
+ListView(
+  scrollDirection: Axis.horizontal, // Horizontal scrolling
+  children: [
+    Container(width: 100, color: Colors.red),
+    Container(width: 100, color: Colors.green),
+    Container(width: 100, color: Colors.blue),
+  ],
+);
+```
+
+---
+
+### **5. Adding Padding**
+You can add padding around the list using the `padding` property.
+
+#### Example:
+```dart
+ListView(
+  padding: EdgeInsets.all(16), // Padding around the list
+  children: [
+    ListTile(title: Text('Item 1')),
+    ListTile(title: Text('Item 2')),
+    ListTile(title: Text('Item 3')),
+  ],
+);
+```
+
+---
+
+### **6. Adding a Header or Footer**
+You can add a header or footer to the list using the `ListView`'s `children` property.
+
+#### Example:
+```dart
+ListView(
+  children: [
+    Text('Header', style: TextStyle(fontSize: 24)),
+    ListTile(title: Text('Item 1')),
+    ListTile(title: Text('Item 2')),
+    ListTile(title: Text('Item 3')),
+    Text('Footer', style: TextStyle(fontSize: 24)),
+  ],
+);
+```
+
+---
+
+### **7. Controlling Scroll Physics**
+You can control the scroll behavior using the `physics` property.
+
+#### Example:
+```dart
+ListView(
+  physics: BouncingScrollPhysics(), // Bounce effect on iOS
+  children: [
+    ListTile(title: Text('Item 1')),
+    ListTile(title: Text('Item 2')),
+    ListTile(title: Text('Item 3')),
+  ],
+);
+```
+
+---
+
+### **8. Infinite Scrolling**
+You can implement infinite scrolling by dynamically adding items to the list.
+
+#### Example:
+```dart
+class InfiniteListView extends StatefulWidget {
+  @override
+  _InfiniteListViewState createState() => _InfiniteListViewState();
+}
+
+class _InfiniteListViewState extends State<InfiniteListView> {
+  List<int> items = List.generate(20, (index) => index);
+
+  void _loadMore() {
+    setState(() {
+      items.addAll(List.generate(10, (index) => items.length + index));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: items.length + 1,
+      itemBuilder: (context, index) {
+        if (index == items.length) {
+          _loadMore();
+          return Center(child: CircularProgressIndicator());
+        }
+        return ListTile(title: Text('Item ${items[index]}'));
+      },
+    );
+  }
+}
+```
+
+---
+
+### **9. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+ListView(
+  padding: EdgeInsets.all(16),
+  physics: BouncingScrollPhysics(),
+  children: [
+    Text('Header', style: TextStyle(fontSize: 24)),
+    ListTile(title: Text('Item 1')),
+    ListTile(title: Text('Item 2')),
+    ListTile(title: Text('Item 3')),
+    Text('Footer', style: TextStyle(fontSize: 24)),
+  ],
+);
+```
+
+---
+
+### **Summary of `ListView` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `children`            | The widgets inside the list              | `children: [ListTile(...)]`              |
+| `itemBuilder`         | Builds items on demand                   | `itemBuilder: (context, index) {...}`    |
+| `itemCount`           | Number of items in the list              | `itemCount: 100`                         |
+| `separatorBuilder`    | Builds separators between items          | `separatorBuilder: (context, index) {...}` |
+| `scrollDirection`     | Scroll direction (vertical/horizontal)   | `scrollDirection: Axis.horizontal`       |
+| `padding`             | Padding around the list                  | `padding: EdgeInsets.all(16)`            |
+| `physics`             | Scroll behavior                          | `physics: BouncingScrollPhysics()`       |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `ListView` with various customizations:
+```dart
+ListView(
+  padding: EdgeInsets.all(16),
+  physics: BouncingScrollPhysics(),
+  children: [
+    Text('Header', style: TextStyle(fontSize: 24)),
+    ListTile(title: Text('Item 1')),
+    ListTile(title: Text('Item 2')),
+    ListTile(title: Text('Item 3')),
+    Text('Footer', style: TextStyle(fontSize: 24)),
+  ],
+);
+```
+
+---
+
+## AppBar Widget 
+
+Here’s a summary of the [Flutter `AppBar` class documentation](https://api.flutter.dev/flutter/material/AppBar-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `AppBar` Widget**
+The `AppBar` widget is a Material Design app bar that typically appears at the top of the screen. It is commonly used to display the title, actions, and navigation controls.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use an `AppBar` is to provide a `title`.
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+);
+```
+
+---
+
+### **2. Adding Actions**
+You can add action buttons to the app bar using the `actions` property.
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+  actions: [
+    IconButton(
+      icon: Icon(Icons.search),
+      onPressed: () {
+        print('Search button pressed');
+      },
+    ),
+    IconButton(
+      icon: Icon(Icons.more_vert),
+      onPressed: () {
+        print('More button pressed');
+      },
+    ),
+  ],
+);
+```
+
+---
+
+### **3. Adding a Leading Widget**
+You can add a leading widget (e.g., a back button) using the `leading` property.
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+  leading: IconButton(
+    icon: Icon(Icons.menu),
+    onPressed: () {
+      print('Menu button pressed');
+    },
+  ),
+);
+```
+
+---
+
+### **4. Customizing the Title**
+You can customize the title using the `title` property.
+
+#### Example:
+```dart
+AppBar(
+  title: Row(
+    children: [
+      Icon(Icons.home),
+      SizedBox(width: 8),
+      Text('My App'),
+    ],
+  ),
+);
+```
+
+---
+
+### **5. Adding a Flexible Space**
+You can add a flexible space (e.g., a background image) using the `flexibleSpace` property.
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+  flexibleSpace: Image.network(
+    'https://example.com/background.jpg',
+    fit: BoxFit.cover,
+  ),
+);
+```
+
+---
+
+### **6. Adding a Bottom Widget**
+You can add a bottom widget (e.g., a tab bar) using the `bottom` property.
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+  bottom: TabBar(
+    tabs: [
+      Tab(icon: Icon(Icons.home),
+      Tab(icon: Icon(Icons.settings)),
+    ],
+  ),
+);
+```
+
+---
+
+### **7. Customizing the App Bar Height**
+You can customize the height of the app bar using the `toolbarHeight` property.
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+  toolbarHeight: 100, // Sets the height of the app bar
+);
+```
+
+---
+
+### **8. Customizing the Background Color**
+You can customize the background color of the app bar using the `backgroundColor` property.
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+  backgroundColor: Colors.blue, // Sets the background color
+);
+```
+
+---
+
+### **9. Customizing the Elevation**
+You can customize the elevation (shadow) of the app bar using the `elevation` property.
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+  elevation: 10, // Sets the elevation
+);
+```
+
+---
+
+### **10. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+AppBar(
+  title: Text('My App'),
+  leading: IconButton(
+    icon: Icon(Icons.menu),
+    onPressed: () {
+      print('Menu button pressed');
+    },
+  ),
+  actions: [
+    IconButton(
+      icon: Icon(Icons.search),
+      onPressed: () {
+        print('Search button pressed');
+      },
+    ),
+    IconButton(
+      icon: Icon(Icons.more_vert),
+      onPressed: () {
+        print('More button pressed');
+      },
+    ),
+  ],
+  bottom: TabBar(
+    tabs: [
+      Tab(icon: Icon(Icons.home)),
+      Tab(icon: Icon(Icons.settings)),
+    ],
+  ),
+  backgroundColor: Colors.blue,
+  elevation: 10,
+  toolbarHeight: 100,
+);
+```
+
+---
+
+### **Summary of `AppBar` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `title`               | The title of the app bar                 | `title: Text('My App')`                  |
+| `actions`             | Action buttons                           | `actions: [IconButton(...)]`             |
+| `leading`             | Leading widget (e.g., back button)       | `leading: IconButton(...)`               |
+| `flexibleSpace`       | Flexible space (e.g., background image)  | `flexibleSpace: Image.network(...)`      |
+| `bottom`              | Bottom widget (e.g., tab bar)            | `bottom: TabBar(...)`                    |
+| `toolbarHeight`       | Height of the app bar                    | `toolbarHeight: 100`                     |
+| `backgroundColor`     | Background color                         | `backgroundColor: Colors.blue`           |
+| `elevation`           | Elevation (shadow)                       | `elevation: 10`                          |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of an `AppBar` with various customizations:
+```dart
+AppBar(
+  title: Text('My App'),
+  leading: IconButton(
+    icon: Icon(Icons.menu),
+    onPressed: () {
+      print('Menu button pressed');
+    },
+  ),
+  actions: [
+    IconButton(
+      icon: Icon(Icons.search),
+      onPressed: () {
+        print('Search button pressed');
+      },
+    ),
+    IconButton(
+      icon: Icon(Icons.more_vert),
+      onPressed: () {
+        print('More button pressed');
+      },
+    ),
+  ],
+  bottom: TabBar(
+    tabs: [
+      Tab(icon: Icon(Icons.home)),
+      Tab(icon: Icon(Icons.settings)),
+    ],
+  ),
+  backgroundColor: Colors.blue,
+  elevation: 10,
+  toolbarHeight: 100,
+);
+```
+
+---
+
+## Scafold Widget 
+
+Here’s a summary of the [Flutter `Scaffold` class documentation](https://api.flutter.dev/flutter/material/Scaffold-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Scaffold` Widget**
+The `Scaffold` widget is a fundamental building block in Material Design apps. It provides a framework for implementing the basic Material Design layout structure, including app bars, drawers, floating action buttons, and more.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Scaffold` is to provide a `body`.
+
+#### Example:
+```dart
+Scaffold(
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+);
+```
+
+---
+
+### **2. Adding an App Bar**
+You can add an app bar using the `appBar` property.
+
+#### Example:
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+);
+```
+
+---
+
+### **3. Adding a Floating Action Button**
+You can add a floating action button (FAB) using the `floatingActionButton` property.
+
+#### Example:
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+  floatingActionButton: FloatingActionButton(
+    onPressed: () {
+      print('FAB pressed');
+    },
+    child: Icon(Icons.add),
+  ),
+);
+```
+
+---
+
+### **4. Adding a Drawer**
+You can add a drawer (side menu) using the `drawer` property.
+
+#### Example:
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  drawer: Drawer(
+    child: ListView(
+      children: [
+        DrawerHeader(
+          child: Text('Drawer Header'),
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+        ),
+        ListTile(
+          title: Text('Item 1'),
+          onTap: () {
+            print('Item 1 pressed');
+          },
+        ),
+        ListTile(
+          title: Text('Item 2'),
+          onTap: () {
+            print('Item 2 pressed');
+          },
+        ),
+      ],
+    ),
+  ),
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+);
+```
+
+---
+
+### **5. Adding a Bottom Navigation Bar**
+You can add a bottom navigation bar using the `bottomNavigationBar` property.
+
+#### Example:
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+  bottomNavigationBar: BottomNavigationBar(
+    items: [
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.settings),
+        label: 'Settings',
+      ),
+    ],
+  ),
+);
+```
+
+---
+
+### **6. Adding a SnackBar**
+You can display a snack bar using the `ScaffoldMessenger`.
+
+#### Example:
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  body: Center(
+    child: ElevatedButton(
+      onPressed: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('This is a SnackBar')),
+        );
+      },
+      child: Text('Show SnackBar'),
+    ),
+  ),
+);
+```
+
+---
+
+### **7. Adding a Persistent Footer Button**
+You can add a persistent footer button using the `persistentFooterButtons` property.
+
+#### Example:
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+  persistentFooterButtons: [
+    IconButton(
+      icon: Icon(Icons.thumb_up),
+      onPressed: () {
+        print('Thumbs up pressed');
+      },
+    ),
+    IconButton(
+      icon: Icon(Icons.thumb_down),
+      onPressed: () {
+        print('Thumbs down pressed');
+      },
+    ),
+  ],
+);
+```
+
+---
+
+### **8. Customizing the Background Color**
+You can customize the background color of the scaffold using the `backgroundColor` property.
+
+#### Example:
+```dart
+Scaffold(
+  backgroundColor: Colors.blue, // Sets the background color
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+);
+```
+
+---
+
+### **9. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  drawer: Drawer(
+    child: ListView(
+      children: [
+        DrawerHeader(
+          child: Text('Drawer Header'),
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+        ),
+        ListTile(
+          title: Text('Item 1'),
+          onTap: () {
+            print('Item 1 pressed');
+          },
+        ),
+        ListTile(
+          title: Text('Item 2'),
+          onTap: () {
+            print('Item 2 pressed');
+          },
+        ),
+      ],
+    ),
+  ),
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+  floatingActionButton: FloatingActionButton(
+    onPressed: () {
+      print('FAB pressed');
+    },
+    child: Icon(Icons.add),
+  ),
+  bottomNavigationBar: BottomNavigationBar(
+    items: [
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.settings),
+        label: 'Settings',
+      ),
+    ],
+  ),
+  persistentFooterButtons: [
+    IconButton(
+      icon: Icon(Icons.thumb_up),
+      onPressed: () {
+        print('Thumbs up pressed');
+      },
+    ),
+    IconButton(
+      icon: Icon(Icons.thumb_down),
+      onPressed: () {
+        print('Thumbs down pressed');
+      },
+    ),
+  ],
+  backgroundColor: Colors.blue,
+);
+```
+
+---
+
+### **Summary of `Scaffold` Properties**
+| Property                  | Description                              | Example                                   |
+|---------------------------|------------------------------------------|-------------------------------------------|
+| `appBar`                  | App bar at the top                       | `appBar: AppBar(...)`                    |
+| `body`                    | Main content of the scaffold             | `body: Center(...)`                      |
+| `floatingActionButton`    | Floating action button                   | `floatingActionButton: FloatingActionButton(...)` |
+| `drawer`                  | Side menu                                | `drawer: Drawer(...)`                    |
+| `bottomNavigationBar`     | Bottom navigation bar                    | `bottomNavigationBar: BottomNavigationBar(...)` |
+| `persistentFooterButtons` | Persistent footer buttons                | `persistentFooterButtons: [IconButton(...)]` |
+| `backgroundColor`         | Background color                         | `backgroundColor: Colors.blue`           |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Scaffold` with various customizations:
+```dart
+Scaffold(
+  appBar: AppBar(
+    title: Text('My App'),
+  ),
+  drawer: Drawer(
+    child: ListView(
+      children: [
+        DrawerHeader(
+          child: Text('Drawer Header'),
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+        ),
+        ListTile(
+          title: Text('Item 1'),
+          onTap: () {
+            print('Item 1 pressed');
+          },
+        ),
+        ListTile(
+          title: Text('Item 2'),
+          onTap: () {
+            print('Item 2 pressed');
+          },
+        ),
+      ],
+    ),
+  ),
+  body: Center(
+    child: Text('Hello, Flutter!'),
+  ),
+  floatingActionButton: FloatingActionButton(
+    onPressed: () {
+      print('FAB pressed');
+    },
+    child: Icon(Icons.add),
+  ),
+  bottomNavigationBar: BottomNavigationBar(
+    items: [
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.settings),
+        label: 'Settings',
+      ),
+    ],
+  ),
+  persistentFooterButtons: [
+    IconButton(
+      icon: Icon(Icons.thumb_up),
+      onPressed: () {
+        print('Thumbs up pressed');
+      },
+    ),
+    IconButton(
+      icon: Icon(Icons.thumb_down),
+      onPressed: () {
+        print('Thumbs down pressed');
+      },
+    ),
+  ],
+  backgroundColor: Colors.blue,
+);
+```
+
+---
+
+## Checkbox Widget 
+
+Here’s a summary of the [Flutter `Checkbox` class documentation](https://api.flutter.dev/flutter/material/Checkbox-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Checkbox` Widget**
+The `Checkbox` widget is a Material Design checkbox that allows users to select or deselect an option. It is commonly used in forms, settings, and other interactive UIs.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Checkbox` is to provide a `value` and an `onChanged` callback.
+
+#### Example:
+```dart
+bool isChecked = false;
+
+Checkbox(
+  value: isChecked,
+  onChanged: (bool? value) {
+    setState(() {
+      isChecked = value ?? false;
+    });
+  },
+);
+```
+
+---
+
+### **2. Handling State**
+The `Checkbox` requires state management to update its value. Typically, this is done using a `StatefulWidget`.
+
+#### Example:
+```dart
+class CheckboxExample extends StatefulWidget {
+  @override
+  _CheckboxExampleState createState() => _CheckboxExampleState();
+}
+
+class _CheckboxExampleState extends State<CheckboxExample> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Checkbox(
+      value: isChecked,
+      onChanged: (bool? value) {
+        setState(() {
+          isChecked = value ?? false;
+        });
+      },
+    );
+  }
+}
+```
+
+---
+
+### **3. Customizing the Checkbox**
+You can customize the appearance of the checkbox using the `activeColor`, `checkColor`, and `fillColor` properties.
+
+#### Example:
+```dart
+Checkbox(
+  value: isChecked,
+  onChanged: (bool? value) {
+    setState(() {
+      isChecked = value ?? false;
+    });
+  },
+  activeColor: Colors.green, // Color when checked
+  checkColor: Colors.white,  // Color of the checkmark
+  fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+    if (states.contains(MaterialState.selected)) {
+      return Colors.blue; // Color when checked
+    }
+    return Colors.grey; // Color when unchecked
+  }),
+);
+```
+
+---
+
+### **4. Disabling the Checkbox**
+You can disable the checkbox by setting `onChanged` to `null`.
+
+#### Example:
+```dart
+Checkbox(
+  value: isChecked,
+  onChanged: null, // Disables the checkbox
+);
+```
+
+---
+
+### **5. Using with a ListTile**
+You can combine a `Checkbox` with a `ListTile` to create a more interactive UI.
+
+#### Example:
+```dart
+ListTile(
+  title: Text('Enable Feature'),
+  leading: Checkbox(
+    value: isChecked,
+    onChanged: (bool? value) {
+      setState(() {
+        isChecked = value ?? false;
+      });
+    },
+  ),
+);
+```
+
+---
+
+### **6. Using with a Form**
+You can use a `Checkbox` within a `Form` to manage its state along with other form fields.
+
+#### Example:
+```dart
+class FormExample extends StatefulWidget {
+  @override
+  _FormExampleState createState() => _FormExampleState();
+}
+
+class _FormExampleState extends State<FormExample> {
+  final _formKey = GlobalKey<FormState>();
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          CheckboxListTile(
+            title: Text('Agree to Terms'),
+            value: isChecked,
+            onChanged: (bool? value) {
+              setState(() {
+                isChecked = value ?? false;
+              });
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                print('Form submitted');
+              }
+            },
+            child: Text('Submit'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **7. Using `CheckboxListTile`**
+The `CheckboxListTile` widget combines a `Checkbox` with a `ListTile` for a more integrated look.
+
+#### Example:
+```dart
+CheckboxListTile(
+  title: Text('Enable Feature'),
+  value: isChecked,
+  onChanged: (bool? value) {
+    setState(() {
+      isChecked = value ?? false;
+    });
+  },
+  secondary: Icon(Icons.settings), // Optional icon
+);
+```
+
+---
+
+### **8. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Checkbox(
+  value: isChecked,
+  onChanged: (bool? value) {
+    setState(() {
+      isChecked = value ?? false;
+    });
+  },
+  activeColor: Colors.green,
+  checkColor: Colors.white,
+  fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+    if (states.contains(MaterialState.selected)) {
+      return Colors.blue;
+    }
+    return Colors.grey;
+  }),
+);
+```
+
+---
+
+### **Summary of `Checkbox` Properties**
+| Property          | Description                              | Example                                   |
+|-------------------|------------------------------------------|-------------------------------------------|
+| `value`           | Whether the checkbox is checked          | `value: isChecked`                        |
+| `onChanged`       | Callback when the checkbox is toggled    | `onChanged: (bool? value) {...}`          |
+| `activeColor`     | Color when the checkbox is checked       | `activeColor: Colors.green`               |
+| `checkColor`      | Color of the checkmark                   | `checkColor: Colors.white`                |
+| `fillColor`       | Color of the checkbox fill               | `fillColor: MaterialStateProperty(...)`   |
+| `tristate`        | Whether the checkbox can have a null value | `tristate: true`                        |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Checkbox` with various customizations:
+```dart
+class CheckboxExample extends StatefulWidget {
+  @override
+  _CheckboxExampleState createState() => _CheckboxExampleState();
+}
+
+class _CheckboxExampleState extends State<CheckboxExample> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Checkbox(
+      value: isChecked,
+      onChanged: (bool? value) {
+        setState(() {
+          isChecked = value ?? false;
+        });
+      },
+      activeColor: Colors.green,
+      checkColor: Colors.white,
+      fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+        if (states.contains(MaterialState.selected)) {
+          return Colors.blue;
+        }
+        return Colors.grey;
+      }),
+    );
+  }
+}
+```
+
+---
+
+## Radio Widget 
+
+Here’s a summary of the [Flutter `Radio` class documentation](https://api.flutter.dev/flutter/material/Radio-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Radio` Widget**
+The `Radio` widget is a Material Design radio button that allows users to select one option from a set of mutually exclusive options. It is commonly used in forms, settings, and other interactive UIs.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Radio` is to provide a `value`, `groupValue`, and an `onChanged` callback.
+
+#### Example:
+```dart
+enum Options { option1, option2 }
+
+Options selectedOption = Options.option1;
+
+Radio<Options>(
+  value: Options.option1,
+  groupValue: selectedOption,
+  onChanged: (Options? value) {
+    setState(() {
+      selectedOption = value ?? Options.option1;
+    });
+  },
+);
+```
+
+---
+
+### **2. Handling State**
+The `Radio` requires state management to update its value. Typically, this is done using a `StatefulWidget`.
+
+#### Example:
+```dart
+class RadioExample extends StatefulWidget {
+  @override
+  _RadioExampleState createState() => _RadioExampleState();
+}
+
+class _RadioExampleState extends State<RadioExample> {
+  Options selectedOption = Options.option1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Radio<Options>(
+          value: Options.option1,
+          groupValue: selectedOption,
+          onChanged: (Options? value) {
+            setState(() {
+              selectedOption = value ?? Options.option1;
+            });
+          },
+        ),
+        Radio<Options>(
+          value: Options.option2,
+          groupValue: selectedOption,
+          onChanged: (Options? value) {
+            setState(() {
+              selectedOption = value ?? Options.option2;
+            });
+          },
+        ),
+      ],
+    );
+  }
+}
+```
+
+---
+
+### **3. Customizing the Radio Button**
+You can customize the appearance of the radio button using the `activeColor`, `fillColor`, and `toggleable` properties.
+
+#### Example:
+```dart
+Radio<Options>(
+  value: Options.option1,
+  groupValue: selectedOption,
+  onChanged: (Options? value) {
+    setState(() {
+      selectedOption = value ?? Options.option1;
+    });
+  },
+  activeColor: Colors.green, // Color when selected
+  fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+    if (states.contains(MaterialState.selected)) {
+      return Colors.blue; // Color when selected
+    }
+    return Colors.grey; // Color when unselected
+  }),
+);
+```
+
+---
+
+### **4. Disabling the Radio Button**
+You can disable the radio button by setting `onChanged` to `null`.
+
+#### Example:
+```dart
+Radio<Options>(
+  value: Options.option1,
+  groupValue: selectedOption,
+  onChanged: null, // Disables the radio button
+);
+```
+
+---
+
+### **5. Using with a ListTile**
+You can combine a `Radio` with a `ListTile` to create a more interactive UI.
+
+#### Example:
+```dart
+ListTile(
+  title: Text('Option 1'),
+  leading: Radio<Options>(
+    value: Options.option1,
+    groupValue: selectedOption,
+    onChanged: (Options? value) {
+      setState(() {
+        selectedOption = value ?? Options.option1;
+      });
+    },
+  ),
+);
+```
+
+---
+
+### **6. Using with a Form**
+You can use a `Radio` within a `Form` to manage its state along with other form fields.
+
+#### Example:
+```dart
+class FormExample extends StatefulWidget {
+  @override
+  _FormExampleState createState() => _FormExampleState();
+}
+
+class _FormExampleState extends State<FormExample> {
+  final _formKey = GlobalKey<FormState>();
+  Options selectedOption = Options.option1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          RadioListTile<Options>(
+            title: Text('Option 1'),
+            value: Options.option1,
+            groupValue: selectedOption,
+            onChanged: (Options? value) {
+              setState(() {
+                selectedOption = value ?? Options.option1;
+              });
+            },
+          ),
+          RadioListTile<Options>(
+            title: Text('Option 2'),
+            value: Options.option2,
+            groupValue: selectedOption,
+            onChanged: (Options? value) {
+              setState(() {
+                selectedOption = value ?? Options.option2;
+              });
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                print('Form submitted');
+              }
+            },
+            child: Text('Submit'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **7. Using `RadioListTile`**
+The `RadioListTile` widget combines a `Radio` with a `ListTile` for a more integrated look.
+
+#### Example:
+```dart
+RadioListTile<Options>(
+  title: Text('Option 1'),
+  value: Options.option1,
+  groupValue: selectedOption,
+  onChanged: (Options? value) {
+    setState(() {
+      selectedOption = value ?? Options.option1;
+    });
+  },
+  secondary: Icon(Icons.settings), // Optional icon
+);
+```
+
+---
+
+### **8. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Radio<Options>(
+  value: Options.option1,
+  groupValue: selectedOption,
+  onChanged: (Options? value) {
+    setState(() {
+      selectedOption = value ?? Options.option1;
+    });
+  },
+  activeColor: Colors.green,
+  fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+    if (states.contains(MaterialState.selected)) {
+      return Colors.blue;
+    }
+    return Colors.grey;
+  }),
+);
+```
+
+---
+
+### **Summary of `Radio` Properties**
+| Property          | Description                              | Example                                   |
+|-------------------|------------------------------------------|-------------------------------------------|
+| `value`           | The value represented by this radio button | `value: Options.option1`                |
+| `groupValue`      | The currently selected value             | `groupValue: selectedOption`             |
+| `onChanged`       | Callback when the radio button is selected | `onChanged: (Options? value) {...}`     |
+| `activeColor`     | Color when the radio button is selected  | `activeColor: Colors.green`              |
+| `fillColor`       | Color of the radio button fill           | `fillColor: MaterialStateProperty(...)`  |
+| `toggleable`      | Whether the radio button can be toggled  | `toggleable: true`                       |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Radio` with various customizations:
+```dart
+class RadioExample extends StatefulWidget {
+  @override
+  _RadioExampleState createState() => _RadioExampleState();
+}
+
+class _RadioExampleState extends State<RadioExample> {
+  Options selectedOption = Options.option1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Radio<Options>(
+          value: Options.option1,
+          groupValue: selectedOption,
+          onChanged: (Options? value) {
+            setState(() {
+              selectedOption = value ?? Options.option1;
+            });
+          },
+          activeColor: Colors.green,
+          fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+            if (states.contains(MaterialState.selected)) {
+              return Colors.blue;
+            }
+            return Colors.grey;
+          }),
+        ),
+        Radio<Options>(
+          value: Options.option2,
+          groupValue: selectedOption,
+          onChanged: (Options? value) {
+            setState(() {
+              selectedOption = value ?? Options.option2;
+            });
+          },
+        ),
+      ],
+    );
+  }
+}
+```
+
+---
+
+## Slider Widget 
+
+Here’s a summary of the [Flutter `Slider` class documentation](https://api.flutter.dev/flutter/material/Slider-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Slider` Widget**
+The `Slider` widget is a Material Design slider that allows users to select a value from a range of values by dragging a thumb along a track. It is commonly used for settings like volume control, brightness adjustment, etc.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Slider` is to provide a `value`, `min`, `max`, and an `onChanged` callback.
+
+#### Example:
+```dart
+double sliderValue = 50;
+
+Slider(
+  value: sliderValue,
+  min: 0,
+  max: 100,
+  onChanged: (double value) {
+    setState(() {
+      sliderValue = value;
+    });
+  },
+);
+```
+
+---
+
+### **2. Handling State**
+The `Slider` requires state management to update its value. Typically, this is done using a `StatefulWidget`.
+
+#### Example:
+```dart
+class SliderExample extends StatefulWidget {
+  @override
+  _SliderExampleState createState() => _SliderExampleState();
+}
+
+class _SliderExampleState extends State<SliderExample> {
+  double sliderValue = 50;
+
+  @override
+  Widget build(BuildContext context) {
+    return Slider(
+      value: sliderValue,
+      min: 0,
+      max: 100,
+      onChanged: (double value) {
+        setState(() {
+          sliderValue = value;
+        });
+      },
+    );
+  }
+}
+```
+
+---
+
+### **3. Customizing the Slider**
+You can customize the appearance of the slider using the `activeColor`, `inactiveColor`, and `thumbColor` properties.
+
+#### Example:
+```dart
+Slider(
+  value: sliderValue,
+  min: 0,
+  max: 100,
+  onChanged: (double value) {
+    setState(() {
+      sliderValue = value;
+    });
+  },
+  activeColor: Colors.green, // Color of the active part of the track
+  inactiveColor: Colors.grey, // Color of the inactive part of the track
+  thumbColor: Colors.blue, // Color of the thumb
+);
+```
+
+---
+
+### **4. Adding Divisions**
+You can add divisions to the slider using the `divisions` property.
+
+#### Example:
+```dart
+Slider(
+  value: sliderValue,
+  min: 0,
+  max: 100,
+  divisions: 10, // Number of divisions
+  label: sliderValue.round().toString(), // Label to display
+  onChanged: (double value) {
+    setState(() {
+      sliderValue = value;
+    });
+  },
+);
+```
+
+---
+
+### **5. Adding a Label**
+You can add a label to the slider using the `label` property.
+
+#### Example:
+```dart
+Slider(
+  value: sliderValue,
+  min: 0,
+  max: 100,
+  divisions: 10,
+  label: sliderValue.round().toString(), // Label to display
+  onChanged: (double value) {
+    setState(() {
+      sliderValue = value;
+    });
+  },
+);
+```
+
+---
+
+### **6. Disabling the Slider**
+You can disable the slider by setting `onChanged` to `null`.
+
+#### Example:
+```dart
+Slider(
+  value: sliderValue,
+  min: 0,
+  max: 100,
+  onChanged: null, // Disables the slider
+);
+```
+
+---
+
+### **7. Using with a ListTile**
+You can combine a `Slider` with a `ListTile` to create a more interactive UI.
+
+#### Example:
+```dart
+ListTile(
+  title: Text('Slider Value: ${sliderValue.round()}'),
+  subtitle: Slider(
+    value: sliderValue,
+    min: 0,
+    max: 100,
+    onChanged: (double value) {
+      setState(() {
+        sliderValue = value;
+      });
+    },
+  ),
+);
+```
+
+---
+
+### **8. Using with a Form**
+You can use a `Slider` within a `Form` to manage its state along with other form fields.
+
+#### Example:
+```dart
+class FormExample extends StatefulWidget {
+  @override
+  _FormExampleState createState() => _FormExampleState();
+}
+
+class _FormExampleState extends State<FormExample> {
+  final _formKey = GlobalKey<FormState>();
+  double sliderValue = 50;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          Slider(
+            value: sliderValue,
+            min: 0,
+            max: 100,
+            onChanged: (double value) {
+              setState(() {
+                sliderValue = value;
+              });
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                print('Form submitted');
+              }
+            },
+            child: Text('Submit'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **9. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Slider(
+  value: sliderValue,
+  min: 0,
+  max: 100,
+  divisions: 10,
+  label: sliderValue.round().toString(),
+  onChanged: (double value) {
+    setState(() {
+      sliderValue = value;
+    });
+  },
+  activeColor: Colors.green,
+  inactiveColor: Colors.grey,
+  thumbColor: Colors.blue,
+);
+```
+
+---
+
+### **Summary of `Slider` Properties**
+| Property          | Description                              | Example                                   |
+|-------------------|------------------------------------------|-------------------------------------------|
+| `value`           | The current value of the slider          | `value: sliderValue`                      |
+| `min`             | The minimum value of the slider          | `min: 0`                                  |
+| `max`             | The maximum value of the slider          | `max: 100`                                |
+| `onChanged`       | Callback when the slider value changes   | `onChanged: (double value) {...}`         |
+| `activeColor`     | Color of the active part of the track    | `activeColor: Colors.green`               |
+| `inactiveColor`   | Color of the inactive part of the track  | `inactiveColor: Colors.grey`              |
+| `thumbColor`      | Color of the thumb                       | `thumbColor: Colors.blue`                 |
+| `divisions`       | Number of divisions                      | `divisions: 10`                           |
+| `label`           | Label to display                         | `label: sliderValue.round().toString()`   |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Slider` with various customizations:
+```dart
+class SliderExample extends StatefulWidget {
+  @override
+  _SliderExampleState createState() => _SliderExampleState();
+}
+
+class _SliderExampleState extends State<SliderExample> {
+  double sliderValue = 50;
+
+  @override
+  Widget build(BuildContext context) {
+    return Slider(
+      value: sliderValue,
+      min: 0,
+      max: 100,
+      divisions: 10,
+      label: sliderValue.round().toString(),
+      onChanged: (double value) {
+        setState(() {
+          sliderValue = value;
+        });
+      },
+      activeColor: Colors.green,
+      inactiveColor: Colors.grey,
+      thumbColor: Colors.blue,
+    );
+  }
+}
+```
+
+---
+
+## Inkwell Widget 
+
+Here’s a summary of the [Flutter `InkWell` class documentation](https://api.flutter.dev/flutter/material/InkWell-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `InkWell` Widget**
+The `InkWell` widget is a Material Design ink splash effect that responds to touch events. It is commonly used to make any widget interactive by adding ripple effects when tapped.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use an `InkWell` is to wrap it around a child widget and provide an `onTap` callback.
+
+#### Example:
+```dart
+InkWell(
+  onTap: () {
+    print('Tapped!');
+  },
+  child: Container(
+    padding: EdgeInsets.all(20),
+    child: Text('Tap Me'),
+  ),
+);
+```
+
+---
+
+### **2. Handling Different Tap Events**
+You can handle different tap events like `onDoubleTap`, `onLongPress`, and `onTapCancel`.
+
+#### Example:
+```dart
+InkWell(
+  onTap: () {
+    print('Tapped!');
+  },
+  onDoubleTap: () {
+    print('Double Tapped!');
+  },
+  onLongPress: () {
+    print('Long Pressed!');
+  },
+  onTapCancel: () {
+    print('Tap Cancelled!');
+  },
+  child: Container(
+    padding: EdgeInsets.all(20),
+    child: Text('Tap Me'),
+  ),
+);
+```
+
+---
+
+### **3. Customizing the Splash Color**
+You can customize the splash color using the `splashColor` and `highlightColor` properties.
+
+#### Example:
+```dart
+InkWell(
+  onTap: () {
+    print('Tapped!');
+  },
+  splashColor: Colors.blue, // Splash color
+  highlightColor: Colors.green, // Highlight color
+  child: Container(
+    padding: EdgeInsets.all(20),
+    child: Text('Tap Me'),
+  ),
+);
+```
+
+---
+
+### **4. Customizing the Border Radius**
+You can customize the border radius of the ink splash using the `borderRadius` property.
+
+#### Example:
+```dart
+InkWell(
+  onTap: () {
+    print('Tapped!');
+  },
+  borderRadius: BorderRadius.circular(10), // Rounded corners
+  child: Container(
+    padding: EdgeInsets.all(20),
+    child: Text('Tap Me'),
+  ),
+);
+```
+
+---
+
+### **5. Disabling the InkWell**
+You can disable the `InkWell` by setting `onTap` to `null`.
+
+#### Example:
+```dart
+InkWell(
+  onTap: null, // Disables the InkWell
+  child: Container(
+    padding: EdgeInsets.all(20),
+    child: Text('Disabled'),
+  ),
+);
+```
+
+---
+
+### **6. Using with a ListTile**
+You can combine an `InkWell` with a `ListTile` to create a more interactive UI.
+
+#### Example:
+```dart
+ListTile(
+  title: Text('Item 1'),
+  onTap: () {
+    print('Item 1 Tapped!');
+  },
+);
+```
+
+---
+
+### **7. Using with a Card**
+You can wrap a `Card` with an `InkWell` to make the entire card interactive.
+
+#### Example:
+```dart
+InkWell(
+  onTap: () {
+    print('Card Tapped!');
+  },
+  child: Card(
+    child: Container(
+      padding: EdgeInsets.all(20),
+      child: Text('Tap Me'),
+    ),
+  ),
+);
+```
+
+---
+
+### **8. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+InkWell(
+  onTap: () {
+    print('Tapped!');
+  },
+  onDoubleTap: () {
+    print('Double Tapped!');
+  },
+  onLongPress: () {
+    print('Long Pressed!');
+  },
+  splashColor: Colors.blue,
+  highlightColor: Colors.green,
+  borderRadius: BorderRadius.circular(10),
+  child: Container(
+    padding: EdgeInsets.all(20),
+    child: Text('Tap Me'),
+  ),
+);
+```
+
+---
+
+### **Summary of `InkWell` Properties**
+| Property          | Description                              | Example                                   |
+|-------------------|------------------------------------------|-------------------------------------------|
+| `onTap`           | Callback when tapped                     | `onTap: () { print('Tapped!'); }`        |
+| `onDoubleTap`     | Callback when double tapped              | `onDoubleTap: () { print('Double Tapped!'); }` |
+| `onLongPress`     | Callback when long pressed               | `onLongPress: () { print('Long Pressed!'); }` |
+| `onTapCancel`     | Callback when tap is cancelled           | `onTapCancel: () { print('Tap Cancelled!'); }` |
+| `splashColor`     | Color of the splash effect               | `splashColor: Colors.blue`               |
+| `highlightColor`  | Color of the highlight effect            | `highlightColor: Colors.green`           |
+| `borderRadius`    | Border radius of the ink splash          | `borderRadius: BorderRadius.circular(10)`|
+| `child`           | The widget inside the InkWell            | `child: Container(...)`                  |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of an `InkWell` with various customizations:
+```dart
+InkWell(
+  onTap: () {
+    print('Tapped!');
+  },
+  onDoubleTap: () {
+    print('Double Tapped!');
+  },
+  onLongPress: () {
+    print('Long Pressed!');
+  },
+  splashColor: Colors.blue,
+  highlightColor: Colors.green,
+  borderRadius: BorderRadius.circular(10),
+  child: Container(
+    padding: EdgeInsets.all(20),
+    child: Text('Tap Me'),
+  ),
+);
+```
+
+---
+
+## Form Widget 
+
+Here’s a summary of the [Flutter `Form` class documentation](https://api.flutter.dev/flutter/widgets/Form-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Form` Widget**
+The `Form` widget is a container for grouping and validating multiple form fields. It provides a way to manage the state of form fields, validate user input, and handle form submission.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Form` is to wrap it around form fields like `TextFormField` and provide a `GlobalKey` to manage the form's state.
+
+#### Example:
+```dart
+class MyForm extends StatefulWidget {
+  @override
+  _MyFormState createState() => _MyFormState();
+}
+
+class _MyFormState extends State<MyForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            decoration: InputDecoration(labelText: 'Name'),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter your name';
+              }
+              return null;
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                print('Form submitted');
+              }
+            },
+            child: Text('Submit'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **2. Managing Form State**
+The `Form` widget uses a `GlobalKey<FormState>` to manage the state of the form and validate the form fields.
+
+#### Example:
+```dart
+final _formKey = GlobalKey<FormState>();
+
+Form(
+  key: _formKey,
+  child: Column(
+    children: [
+      TextFormField(
+        decoration: InputDecoration(labelText: 'Name'),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter your name';
+          }
+          return null;
+        },
+      ),
+      ElevatedButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print('Form submitted');
+          }
+        },
+        child: Text('Submit'),
+      ),
+    ],
+  ),
+);
+```
+
+---
+
+### **3. Validating Form Fields**
+You can validate form fields using the `validator` property of form field widgets like `TextFormField`.
+
+#### Example:
+```dart
+TextFormField(
+  decoration: InputDecoration(labelText: 'Email'),
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    }
+    if (!value.contains('@')) {
+      return 'Please enter a valid email';
+    }
+    return null;
+  },
+);
+```
+
+---
+
+### **4. Saving Form Data**
+You can save form data using the `onSaved` property of form field widgets.
+
+#### Example:
+```dart
+TextFormField(
+  decoration: InputDecoration(labelText: 'Name'),
+  onSaved: (value) {
+    print('Name: $value');
+  },
+);
+```
+
+---
+
+### **5. Resetting the Form**
+You can reset the form using the `reset` method of the `FormState`.
+
+#### Example:
+```dart
+ElevatedButton(
+  onPressed: () {
+    _formKey.currentState!.reset();
+  },
+  child: Text('Reset'),
+);
+```
+
+---
+
+### **6. Autovalidate Mode**
+You can set the `autovalidateMode` property to automatically validate form fields as the user types.
+
+#### Example:
+```dart
+Form(
+  key: _formKey,
+  autovalidateMode: AutovalidateMode.onUserInteraction,
+  child: Column(
+    children: [
+      TextFormField(
+        decoration: InputDecoration(labelText: 'Name'),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter your name';
+          }
+          return null;
+        },
+      ),
+      ElevatedButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print('Form submitted');
+          }
+        },
+        child: Text('Submit'),
+      ),
+    ],
+  ),
+);
+```
+
+---
+
+### **7. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Form(
+  key: _formKey,
+  autovalidateMode: AutovalidateMode.onUserInteraction,
+  child: Column(
+    children: [
+      TextFormField(
+        decoration: InputDecoration(labelText: 'Name'),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter your name';
+          }
+          return null;
+        },
+        onSaved: (value) {
+          print('Name: $value');
+        },
+      ),
+      TextFormField(
+        decoration: InputDecoration(labelText: 'Email'),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter your email';
+          }
+          if (!value.contains('@')) {
+            return 'Please enter a valid email';
+          }
+          return null;
+        },
+        onSaved: (value) {
+          print('Email: $value');
+        },
+      ),
+      ElevatedButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            _formKey.currentState!.save();
+            print('Form submitted');
+          }
+        },
+        child: Text('Submit'),
+      ),
+      ElevatedButton(
+        onPressed: () {
+          _formKey.currentState!.reset();
+        },
+        child: Text('Reset'),
+      ),
+    ],
+  ),
+);
+```
+
+---
+
+### **Summary of `Form` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `key`                 | GlobalKey to manage form state           | `key: _formKey`                           |
+| `autovalidateMode`    | Automatically validate form fields       | `autovalidateMode: AutovalidateMode.onUserInteraction` |
+| `child`               | The widget inside the form               | `child: Column(...)`                      |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Form` with various customizations:
+```dart
+class MyForm extends StatefulWidget {
+  @override
+  _MyFormState createState() => _MyFormState();
+}
+
+class _MyFormState extends State<MyForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Column(
+        children: [
+          TextFormField(
+            decoration: InputDecoration(labelText: 'Name'),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter your name';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              print('Name: $value');
+            },
+          ),
+          TextFormField(
+            decoration: InputDecoration(labelText: 'Email'),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter your email';
+              }
+              if (!value.contains('@')) {
+                return 'Please enter a valid email';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              print('Email: $value');
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                print('Form submitted');
+              }
+            },
+            child: Text('Submit'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              _formKey.currentState!.reset();
+            },
+            child: Text('Reset'),
+          ),
+        ],
+      ),
+    );
+  }
+}
 ```
 
 ---
