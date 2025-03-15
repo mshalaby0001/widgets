@@ -47,6 +47,9 @@ StreamBuilder – Builds widgets based on a Stream.
 ClipRRect – Clips a widget into a rounded rectangle.
 RichText – Displays text with multiple styles.
 
+[[# Text Widget]]
+
+
 ## Text Widget 
 
 Here’s a summary of the [Flutter `Text` class documentation](https://api.flutter.dev/flutter/widgets/Text-class.html), using the same method with explanations and **code examples**:
