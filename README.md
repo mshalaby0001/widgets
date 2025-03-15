@@ -3707,3 +3707,1059 @@ class _MyFormState extends State<MyForm> {
 
 ---
 
+## Inherited Widget 
+
+Here’s a summary of the [Flutter `InheritedWidget` class documentation](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `InheritedWidget` Widget**
+The `InheritedWidget` is a base class for widgets that efficiently propagate information down the widget tree. It allows descendant widgets to access data without requiring explicit passing of data through constructors.
+
+---
+
+### **1. Basic Usage**
+To use `InheritedWidget`, you need to create a subclass that holds the data and provides a static method to access it.
+
+#### Example:
+```dart
+class MyInheritedWidget extends InheritedWidget {
+  final int data;
+
+  MyInheritedWidget({
+    required this.data,
+    required Widget child,
+  }) : super(child: child);
+
+  @override
+  bool updateShouldNotify(MyInheritedWidget oldWidget) {
+    return oldWidget.data != data;
+  }
+
+  static MyInheritedWidget? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<MyInheritedWidget>();
+  }
+}
+```
+
+---
+
+### **2. Using the Inherited Widget**
+You can use the `InheritedWidget` by wrapping it around the widget tree and accessing the data in descendant widgets.
+
+#### Example:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MyInheritedWidget(
+      data: 42,
+      child: MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(title: Text('InheritedWidget Example')),
+          body: MyChildWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyChildWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final inheritedWidget = MyInheritedWidget.of(context);
+    return Center(
+      child: Text('Data: ${inheritedWidget?.data}'),
+    );
+  }
+}
+```
+
+---
+
+### **3. Updating the Inherited Widget**
+When the data in the `InheritedWidget` changes, the `updateShouldNotify` method determines whether to rebuild the dependent widgets.
+
+#### Example:
+```dart
+class MyInheritedWidget extends InheritedWidget {
+  final int data;
+
+  MyInheritedWidget({
+    required this.data,
+    required Widget child,
+  }) : super(child: child);
+
+  @override
+  bool updateShouldNotify(MyInheritedWidget oldWidget) {
+    return oldWidget.data != data;
+  }
+
+  static MyInheritedWidget? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<MyInheritedWidget>();
+  }
+}
+```
+
+---
+
+### **4. Accessing Data in Descendant Widgets**
+You can access the data in descendant widgets using the static `of` method.
+
+#### Example:
+```dart
+class MyChildWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final inheritedWidget = MyInheritedWidget.of(context);
+    return Center(
+      child: Text('Data: ${inheritedWidget?.data}'),
+    );
+  }
+}
+```
+
+---
+
+### **5. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+class MyInheritedWidget extends InheritedWidget {
+  final int data;
+
+  MyInheritedWidget({
+    required this.data,
+    required Widget child,
+  }) : super(child: child);
+
+  @override
+  bool updateShouldNotify(MyInheritedWidget oldWidget) {
+    return oldWidget.data != data;
+  }
+
+  static MyInheritedWidget? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<MyInheritedWidget>();
+  }
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MyInheritedWidget(
+      data: 42,
+      child: MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(title: Text('InheritedWidget Example')),
+          body: MyChildWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyChildWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final inheritedWidget = MyInheritedWidget.of(context);
+    return Center(
+      child: Text('Data: ${inheritedWidget?.data}'),
+    );
+  }
+}
+```
+
+---
+
+### **Summary of `InheritedWidget` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `child`               | The widget tree below the InheritedWidget | `child: MyChildWidget()`                 |
+| `updateShouldNotify`  | Determines whether to rebuild dependent widgets | `updateShouldNotify: (oldWidget) {...}` |
+| `of`                  | Static method to access the InheritedWidget | `MyInheritedWidget.of(context)`          |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of an `InheritedWidget` with various customizations:
+```dart
+class MyInheritedWidget extends InheritedWidget {
+  final int data;
+
+  MyInheritedWidget({
+    required this.data,
+    required Widget child,
+  }) : super(child: child);
+
+  @override
+  bool updateShouldNotify(MyInheritedWidget oldWidget) {
+    return oldWidget.data != data;
+  }
+
+  static MyInheritedWidget? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<MyInheritedWidget>();
+  }
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MyInheritedWidget(
+      data: 42,
+      child: MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(title: Text('InheritedWidget Example')),
+          body: MyChildWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyChildWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final inheritedWidget = MyInheritedWidget.of(context);
+    return Center(
+      child: Text('Data: ${inheritedWidget?.data}'),
+    );
+  }
+}
+```
+
+---
+
+## Stateless Widget 
+
+Here’s a summary of the [Flutter `StatelessWidget` class documentation](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `StatelessWidget` Widget**
+The `StatelessWidget` is a base class for widgets that do not require mutable state. It is used to build UI components that depend only on their configuration (i.e., their constructor arguments) and do not change over time.
+
+---
+
+### **1. Basic Usage**
+To create a `StatelessWidget`, you need to override the `build` method and return a widget tree.
+
+#### Example:
+```dart
+class MyStatelessWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      child: Center(
+        child: Text('Hello, Flutter!'),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **2. Using Constructor Parameters**
+You can pass parameters to a `StatelessWidget` via its constructor to customize its behavior.
+
+#### Example:
+```dart
+class GreetingWidget extends StatelessWidget {
+  final String name;
+
+  GreetingWidget({required this.name});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('Hello, $name!');
+  }
+}
+
+// Usage
+GreetingWidget(name: 'Alice');
+```
+
+---
+
+### **3. Building a UI**
+The `build` method is where you define the UI for the widget. It must return a single widget, but that widget can contain a complex tree of other widgets.
+
+#### Example:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('StatelessWidget Example')),
+        body: Center(
+          child: GreetingWidget(name: 'Alice'),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **4. StatelessWidget Lifecycle**
+Since `StatelessWidget` does not maintain state, it has a simple lifecycle:
+1. **Creation**: The widget is created with its constructor.
+2. **Build**: The `build` method is called to render the UI.
+3. **Disposal**: The widget is removed from the tree and disposed of.
+
+---
+
+### **5. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+class MyStatelessWidget extends StatelessWidget {
+  final String title;
+  final String message;
+
+  MyStatelessWidget({required this.title, required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Text(message),
+      ),
+    );
+  }
+}
+
+// Usage
+MyStatelessWidget(
+  title: 'Welcome',
+  message: 'Hello, Flutter!',
+);
+```
+
+---
+
+### **Summary of `StatelessWidget` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `build`               | Builds the UI for the widget             | `build: (context) { return ... }`         |
+| Constructor Parameters | Pass data to the widget                 | `MyWidget({required this.data})`          |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `StatelessWidget` with various customizations:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('StatelessWidget Example')),
+        body: Center(
+          child: GreetingWidget(name: 'Alice'),
+        ),
+      ),
+    );
+  }
+}
+
+class GreetingWidget extends StatelessWidget {
+  final String name;
+
+  GreetingWidget({required this.name});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('Hello, $name!');
+  }
+}
+```
+
+---
+
+## Stateful widget 
+
+Here’s a summary of the [Flutter `StatefulWidget` class documentation](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `StatefulWidget` Widget**
+The `StatefulWidget` is a base class for widgets that can change over time. It maintains mutable state, allowing the UI to update dynamically in response to user interactions, data changes, or other events.
+
+---
+
+### **1. Basic Usage**
+To create a `StatefulWidget`, you need to:
+1. Create a subclass of `StatefulWidget`.
+2. Create a corresponding `State` subclass to manage the widget's state.
+
+#### Example:
+```dart
+class MyStatefulWidget extends StatefulWidget {
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('StatefulWidget Example')),
+      body: Center(
+        child: Text('Counter: $_counter'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **2. Managing State**
+The `State` object is where you store mutable data and call `setState` to trigger UI updates.
+
+#### Example:
+```dart
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Counter: $_counter'),
+    );
+  }
+}
+```
+
+---
+
+### **3. Using Constructor Parameters**
+You can pass parameters to a `StatefulWidget` via its constructor, but the state is managed in the `State` object.
+
+#### Example:
+```dart
+class CounterWidget extends StatefulWidget {
+  final int initialValue;
+
+  CounterWidget({required this.initialValue});
+
+  @override
+  _CounterWidgetState createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int _counter;
+
+  _CounterWidgetState() : _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _counter = widget.initialValue; // Access the widget's properties
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Counter: $_counter'),
+    );
+  }
+}
+```
+
+---
+
+### **4. Lifecycle Methods**
+The `State` object has several lifecycle methods:
+- `initState`: Called once when the state is created.
+- `didUpdateWidget`: Called when the widget is rebuilt with new configuration.
+- `dispose`: Called when the state is removed from the tree.
+
+#### Example:
+```dart
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  @override
+  void initState() {
+    super.initState();
+    print('State initialized');
+  }
+
+  @override
+  void didUpdateWidget(MyStatefulWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('Widget updated');
+  }
+
+  @override
+  void dispose() {
+    print('State disposed');
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+```
+
+---
+
+### **5. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+class CounterWidget extends StatefulWidget {
+  final int initialValue;
+
+  CounterWidget({required this.initialValue});
+
+  @override
+  _CounterWidgetState createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int _counter;
+
+  _CounterWidgetState() : _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _counter = widget.initialValue;
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Counter')),
+      body: Center(
+        child: Text('Counter: $_counter'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **Summary of `StatefulWidget` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `createState`         | Creates the state object                 | `createState: () => _MyState()`           |
+| `State`               | Manages mutable state                    | `class _MyState extends State<MyWidget>`  |
+| `setState`            | Triggers UI updates                      | `setState(() { ... })`                    |
+| `initState`           | Called once when state is created        | `initState: () { ... }`                   |
+| `didUpdateWidget`     | Called when widget is updated            | `didUpdateWidget: (oldWidget) { ... }`    |
+| `dispose`             | Called when state is disposed            | `dispose: () { ... }`                     |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `StatefulWidget` with various customizations:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: CounterWidget(initialValue: 0),
+    );
+  }
+}
+
+class CounterWidget extends StatefulWidget {
+  final int initialValue;
+
+  CounterWidget({required this.initialValue});
+
+  @override
+  _CounterWidgetState createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int _counter;
+
+  _CounterWidgetState() : _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _counter = widget.initialValue;
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Counter')),
+      body: Center(
+        child: Text('Counter: $_counter'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+---
+
+## Styling Widget using theme  
+
+Here’s a summary of the [Flutter `Theme` class documentation](https://api.flutter.dev/flutter/material/Theme-class.html), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `Theme` Widget**
+The `Theme` widget is used to define the visual design of an app, such as colors, fonts, and shapes. It allows you to apply a consistent design across your app by providing a `ThemeData` object.
+
+---
+
+### **1. Basic Usage**
+The simplest way to use a `Theme` is to wrap it around your app or a part of your app and provide a `ThemeData` object.
+
+#### Example:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+```
+
+---
+
+### **2. Customizing Theme Data**
+You can customize the theme by providing a `ThemeData` object with properties like `primaryColor`, `accentColor`, `textTheme`, etc.
+
+#### Example:
+```dart
+ThemeData(
+  primaryColor: Colors.blue,
+  accentColor: Colors.green,
+  textTheme: TextTheme(
+    headline1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+    bodyText1: TextStyle(fontSize: 16, color: Colors.black),
+  ),
+);
+```
+
+---
+
+### **3. Applying a Theme to a Subtree**
+You can apply a theme to a specific part of your app by wrapping it with a `Theme` widget.
+
+#### Example:
+```dart
+Theme(
+  data: ThemeData(
+    primaryColor: Colors.red,
+    accentColor: Colors.orange,
+  ),
+  child: Container(
+    color: Theme.of(context).primaryColor,
+    child: Text('Hello, Flutter!', style: Theme.of(context).textTheme.headline1),
+  ),
+);
+```
+
+---
+
+### **4. Inheriting the Theme**
+You can access the current theme using `Theme.of(context)`.
+
+#### Example:
+```dart
+Text(
+  'Hello, Flutter!',
+  style: Theme.of(context).textTheme.headline1,
+);
+```
+
+---
+
+### **5. Overriding the Theme**
+You can override the theme for a specific part of your app by wrapping it with a `Theme` widget and setting the `data` property.
+
+#### Example:
+```dart
+Theme(
+  data: Theme.of(context).copyWith(
+    primaryColor: Colors.purple,
+  ),
+  child: Container(
+    color: Theme.of(context).primaryColor,
+    child: Text('Hello, Flutter!'),
+  ),
+);
+```
+
+---
+
+### **6. Using ThemeData**
+The `ThemeData` class provides a wide range of properties to customize the theme.
+
+#### Example:
+```dart
+ThemeData(
+  primarySwatch: Colors.blue,
+  brightness: Brightness.light,
+  textTheme: TextTheme(
+    headline1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+    bodyText1: TextStyle(fontSize: 16, color: Colors.black),
+  ),
+  buttonTheme: ButtonThemeData(
+    buttonColor: Colors.green,
+    textTheme: ButtonTextTheme.primary,
+  ),
+);
+```
+
+---
+
+### **7. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+Theme(
+  data: ThemeData(
+    primarySwatch: Colors.blue,
+    brightness: Brightness.light,
+    textTheme: TextTheme(
+      headline1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+      bodyText1: TextStyle(fontSize: 16, color: Colors.black),
+    ),
+    buttonTheme: ButtonThemeData(
+      buttonColor: Colors.green,
+      textTheme: ButtonTextTheme.primary,
+    ),
+  ),
+  child: Container(
+    color: Theme.of(context).primaryColor,
+    child: Text('Hello, Flutter!', style: Theme.of(context).textTheme.headline1),
+  ),
+);
+```
+
+---
+
+### **Summary of `Theme` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `data`                | The theme data to apply                  | `data: ThemeData(...)`                    |
+| `child`               | The widget tree below the theme          | `child: Container(...)`                   |
+| `Theme.of(context)`   | Accesses the current theme               | `Theme.of(context).primaryColor`          |
+| `ThemeData`           | Customizes the theme                     | `ThemeData(primarySwatch: Colors.blue)`   |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of a `Theme` with various customizations:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          bodyText1: TextStyle(fontSize: 16, color: Colors.black),
+        ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.green,
+          textTheme: ButtonTextTheme.primary,
+        ),
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Theme Example')),
+      body: Center(
+        child: Text('Hello, Flutter!', style: Theme.of(context).textTheme.headline1),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+---
+
+## Responsive Widgets using `MediaQuery` and `SafeArea`
+
+Here’s a summary of the [Flutter documentation on `SafeArea` and `MediaQuery`](https://docs.flutter.dev/ui/adaptive-responsive/safearea-mediaquery), using the same method with explanations and **code examples**:
+
+---
+
+### **Flutter `SafeArea` and `MediaQuery`**
+These widgets are essential for creating adaptive and responsive UIs in Flutter. They help ensure that your app looks good on different devices and screen sizes.
+
+---
+
+### **1. `SafeArea` Widget**
+The `SafeArea` widget ensures that its child is not obscured by system UI elements like notches, status bars, or navigation bars.
+
+#### Example:
+```dart
+SafeArea(
+  child: Container(
+    color: Colors.blue,
+    child: Text('This text is within the safe area.'),
+  ),
+);
+```
+
+---
+
+### **2. `MediaQuery` Widget**
+The `MediaQuery` widget provides information about the current device's screen size, orientation, and other display properties.
+
+#### Example:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
+    final screenHeight = mediaQuery.size.height;
+
+    return Scaffold(
+      body: Center(
+        child: Text('Screen Width: $screenWidth, Screen Height: $screenHeight'),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **3. Combining `SafeArea` and `MediaQuery`**
+You can combine `SafeArea` and `MediaQuery` to create responsive layouts that adapt to different screen sizes and avoid system UI elements.
+
+#### Example:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
+    final screenHeight = mediaQuery.size.height;
+
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            width: screenWidth * 0.8,
+            height: screenHeight * 0.5,
+            color: Colors.blue,
+            child: Center(
+              child: Text('Responsive Container'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **4. Handling Orientation Changes**
+You can use `MediaQuery` to detect the device's orientation and adjust the layout accordingly.
+
+#### Example:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final isPortrait = mediaQuery.orientation == Orientation.portrait;
+
+    return Scaffold(
+      body: Center(
+        child: Text(isPortrait ? 'Portrait Mode' : 'Landscape Mode'),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **5. Using `MediaQueryData`**
+The `MediaQueryData` class provides detailed information about the device's display, such as padding, view insets, and text scaling.
+
+#### Example:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final padding = mediaQuery.padding;
+    final viewInsets = mediaQuery.viewInsets;
+    final textScaleFactor = mediaQuery.textScaleFactor;
+
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Padding: $padding'),
+            Text('View Insets: $viewInsets'),
+            Text('Text Scale Factor: $textScaleFactor'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **6. Combining Properties**
+Here’s an example combining multiple properties:
+
+#### Example:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
+    final screenHeight = mediaQuery.size.height;
+    final isPortrait = mediaQuery.orientation == Orientation.portrait;
+
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            width: isPortrait ? screenWidth * 0.8 : screenWidth * 0.5,
+            height: isPortrait ? screenHeight * 0.5 : screenHeight * 0.8,
+            color: Colors.blue,
+            child: Center(
+              child: Text('Responsive Container'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **Summary of `SafeArea` and `MediaQuery` Properties**
+| Property              | Description                              | Example                                   |
+|-----------------------|------------------------------------------|-------------------------------------------|
+| `SafeArea`            | Ensures content is within safe areas     | `SafeArea(child: Container(...))`         |
+| `MediaQuery`          | Provides screen information              | `MediaQuery.of(context).size.width`       |
+| `MediaQueryData`      | Detailed display information             | `MediaQuery.of(context).padding`          |
+| `Orientation`         | Detects device orientation               | `MediaQuery.of(context).orientation`      |
+
+---
+
+### **Example: Full Usage**
+Here’s a complete example of using `SafeArea` and `MediaQuery` together:
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
+    final screenHeight = mediaQuery.size.height;
+    final isPortrait = mediaQuery.orientation == Orientation.portrait;
+
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            width: isPortrait ? screenWidth * 0.8 : screenWidth * 0.5,
+            height: isPortrait ? screenHeight * 0.5 : screenHeight * 0.8,
+            color: Colors.blue,
+            child: Center(
+              child: Text('Responsive Container'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+

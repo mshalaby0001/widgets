@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
   final String title;
 
   @override
@@ -43,51 +44,26 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        bottom: TabBar(tabs: [
+          Tab(
+            icon: Icon(Icons.home),
+          ),
+          Tab(
+            icon: Icon(Icons.home),
+          ),
+        ]),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            TextButton(
-              onPressed: () {
-                print('Button pressed!');
-              },
-              style: TextButton.styleFrom(
-                elevation: 5, // Adds shadow
-                textStyle: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                side: BorderSide(color: Colors.blue, width: 2), // Border
-
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10), // Rounded corners
-                ),
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.black, // Background color
-                padding: EdgeInsets.all(16), // Padding
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.thumb_up,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 8), // Spacing between icon and text
-                  Text('Like'),
-                ],
-              ),
-            ),
-          ],
-        ),
+      body: ListView(
+        padding: EdgeInsets.all(16), // Padding around the list
+        children: [
+          ListTile(
+              title: Text(
+            'Item 1',
+            style: TextStyle(backgroundColor: Colors.red),
+          )),
+          ListTile(title: Text('Item 2')),
+          ListTile(title: Text('Item 3')),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
